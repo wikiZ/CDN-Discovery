@@ -46,6 +46,7 @@ func FindWithDomain(domain string) (bool, string, int) {
 		if matched {
 			rank += 30
 			describe = fmt.Sprintf("%s%s", describe, val)
+			goto CHECK
 		} else if rank > 30 {
 			//Check whether the TLS certificate has CDN-related features
 			if b, s := HasCertInfo(ip); b {
@@ -55,6 +56,7 @@ func FindWithDomain(domain string) (bool, string, int) {
 			}
 		}
 	}
+CHECK:
 	// Check whether the CNAME has CDN-related features
 	for _, cname := range CNAMES {
 		if regexp.MustCompile("(?i)cdn").MatchString(cname) {
