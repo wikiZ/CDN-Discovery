@@ -195,7 +195,7 @@ var DomainItems = []Item{
 	{"tdnsstic{1-4}.cn.com", "腾讯云 CDN", "https://cloud.tencent.com/product/cdn-scd"},
 	{"cdn-go.cn", "腾讯云 CDN", "https://cloud.tencent.com/product/cdn-scd"},
 	{"tcdnlive.com", "腾讯云直播 CDN", "https://cloud.tencent.com/product/cdn-scd"},
-	{"cdn.myqcloud.com", "腾讯云 CDN", "https://cloud.tencent.com/product/cos"},
+	{"myqcloud.com", "腾讯云 CDN", "https://cloud.tencent.com/product/cos"},
 	{"gaapqcloud.com", "腾讯云全球应用加速", "https://cloud.tencent.com/product/gaap"},
 	{"gaapqcloud.com.cn", "腾讯云全球应用加速", "https://cloud.tencent.com/product/gaap"},
 	{"gsadds.com", "腾讯云 DDoS 防护", "https://cloud.tencent.com/product/ddos"},
