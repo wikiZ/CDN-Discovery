@@ -11,6 +11,7 @@ import (
 	"context"
 	"fmt"
 	"net"
+	"os"
 	"time"
 
 	"github.com/miekg/dns"
@@ -18,23 +19,23 @@ import (
 
 // domainServers Set Agent Addr
 var domainServers = []string{
-	"114.114.114.114:53",
-	//"8.8.8.8:53",
+	//"114.114.114.114:53",
+	"8.8.8.8:53",
 	"223.6.6.6:53",
 }
 
 var resolvers = generateResolver()
 
-func LookupCNAME(domain string) ([]string, error) {
-	var lastErr error
+func LookupCNAME(domain string) []string {
 	for _, domainServer := range domainServers {
 		CNAMES, err := LookupCNAMEWithServer(domain, domainServer)
 		if err != nil {
-			lastErr = err
+			logger.Warning("请检查网络问题，DNS解析失败！")
+			os.Exit(0)
 		}
-		return CNAMES, nil
+		return CNAMES
 	}
-	return nil, lastErr
+	return nil
 }
 
 func LookupCNAMEWithServer(domain, domainServer string) ([]string, error) {
